@@ -122,17 +122,22 @@ public class Main {
             System.out.print("Enter the number of columns: ");
             int columns = select.nextInt();
             System.out.println();
-            double[][] matrix = new double[rows][columns];
-            for (int i=0; i<rows; i++) {
-                for (int j=0; j<columns; j++) {
-                    System.out.print("Enter a value for element [" + i + "," + j + "]: ");
-                    matrix[i][j] = select.nextDouble();
-                }
+            if(rows > 7 && columns > 7) {
+                System.out.println("Maximum for row/column is 7.");
             }
-            Matrix m = new Matrix(matrix);
-            matrices.add(m);
-            System.out.println();
-            System.out.println(m.toString());
+            else {
+                double[][] matrix = new double[rows][columns];
+                for (int i = 0; i < rows; i++) {
+                    for (int j = 0; j < columns; j++) {
+                        System.out.print("Enter a value for element [" + i + "," + j + "]: ");
+                        matrix[i][j] = select.nextDouble();
+                    }
+                }
+                Matrix m = new Matrix(matrix);
+                matrices.add(m);
+                System.out.println();
+                System.out.println(m.toString());
+            }
             System.out.println("Press any key to continue...");
             choice.nextLine();
         }
